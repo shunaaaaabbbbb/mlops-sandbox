@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: uv sync # uv.lockを元に完璧に同じ環境を再現
 
+      - name: Lint with ruff
+        run: uv run ruff check .
+
+      - name: Type check with mypy
+        run: uv run mypy .
+
       - name: Run training
-        # uv run を使うと、仮想環境を意識せずに実行できます
         run: uv run train.py

@@ -9,3 +9,9 @@ dependencies = [
     "pandas>=2.3.3",
     "scikit-learn>=1.8.0",
 ]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.8",
+]
