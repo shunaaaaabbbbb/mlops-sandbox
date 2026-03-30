@@ -1,0 +1,7 @@
+# 1行の最大文字数（88文字が標準ですが、お好みで）
+line-length = 88
+
+[lint]
+# チェックするルールの種類（E: Pycodestyle, F: Pyflakes が標準）
+select = ["E", "F", "I"] # "I" を入れるとインポート順も直してくれます
+fixable = ["ALL"]
