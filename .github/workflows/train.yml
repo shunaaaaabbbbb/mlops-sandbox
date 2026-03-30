@@ -1,0 +1,26 @@
+name: Machine Learning Training with uv
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true # キャッシュを有効にして2回目以降を爆速にする
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync # uv.lockを元に完璧に同じ環境を再現
+
+      - name: Run training
+        # uv run を使うと、仮想環境を意識せずに実行できます
+        run: uv run train.py
