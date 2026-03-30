@@ -15,3 +15,10 @@ dev = [
     "mypy>=1.19.1",
     "ruff>=0.15.8",
 ]
+
+[tool.mypy]
+# 型定義がないライブラリ（sklearnやpandasなど）をエラーにしない設定
+ignore_missing_imports = true
+
+# チェック対象外にするフォルダ（.venvなどは除外）
+exclude = ["\\.venv"]
