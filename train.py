@@ -11,7 +11,7 @@ def train():
         X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2)
         
         # モデルのパラメータ（適当に変えてPushすると記録が変わります）
-        n_estimators = 10
+        n_estimators = 100
         mlflow.log_param("n_estimators", n_estimators)
         
         model = RandomForestClassifier(n_estimators=n_estimators)
